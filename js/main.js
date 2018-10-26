@@ -87,11 +87,11 @@ var innerDiameters = [
 ]
 
 var colorCodes = {
-    "red" : "#ce3433",
-    "orange" : "#ff8a33",
-    "yellow" : "#ffe35a",
-    "green" : "#49d66d",
-    "blue" :  "#70bbff"
+    "red" : "rgba(214,90,89,1)",
+    "orange" : "rgba(255,164,96,1)",
+    "yellow" : "rgba(255,234,130,1)",
+    "green" : "rgba(159,203,170,1)",
+    "blue" :  "rgba(173,216,255,1)"
 }
 
 function getColorForForce(force){
