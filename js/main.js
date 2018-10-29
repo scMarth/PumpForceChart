@@ -86,25 +86,17 @@ var innerDiameters = [
     }
 ]
 
-var colorCodes = {
-    "red" : "rgba(214,90,89,1)",
-    "orange" : "rgba(255,164,96,1)",
-    "yellow" : "rgba(255,234,130,1)",
-    "green" : "rgba(159,203,170,1)",
-    "blue" :  "rgba(173,216,255,1)"
-}
-
-function getColorForForce(force){
+function getColorClassForForce(force){
     if (force <= 20){
-        return colorCodes["blue"];
+        return "pastel-blue-cell";
     }else if (force > 20 && force <= 25){
-        return colorCodes["green"];
+        return "pastel-green-cell";
     }else if (force > 25 && force <= 35){
-        return colorCodes["yellow"];
+        return "pastel-yellow-cell";
     }else if (force > 35 && force <= 40){
-        return colorCodes["orange"];
+        return "pastel-orange-cell";
     }else{
-        return colorCodes["red"];
+        return "pastel-red-cell";
     }
 }
 
@@ -134,7 +126,7 @@ function main(){
         outHTML += "<tr><td>Force for " + innerDiameters[i]["name"] + " Sch. 80 PVC (lbs)</td>";
         for (var j in pressures){
             force = ((pressures[j]*Math.PI*innerDiameters[i]["sch80"]*innerDiameters[i]["sch80"])/4).toFixed(3);
-            outHTML += "<td style=background-color:" + getColorForForce(force).toString() + ">" + force.toString() + "</td>";
+            outHTML += "<td class='" + getColorClassForForce(force).toString() + "'>" + force.toString() + "</td>";
         }
         outHTML += "</tr>";
 
@@ -142,7 +134,7 @@ function main(){
         outHTML += "<tr><td>Force for " + innerDiameters[i]["name"] + " Sch. 40 PVC (lbs)</td>";
         for (var j in pressures){
             force = ((pressures[j]*Math.PI*innerDiameters[i]["sch40"]*innerDiameters[i]["sch40"])/4).toFixed(3);
-            outHTML += "<td style=background-color:" + getColorForForce(force).toString() + ">" + force.toString() + "</td>";
+            outHTML += "<td class='" + getColorClassForForce(force).toString() + "'>" + force.toString() + "</td>";
         }
         outHTML += "</tr>";
 
